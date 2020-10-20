@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1.title {
+    font-size: 350%;
+    font-weight: 100;
+    margin-bottom: 0px;
+}
+
+h2 {
+    color: green;
+}
+
+div.main {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+button.add-expense {
+    padding: 5px;
+    font-size: 110%;
+    font-weight: 100;
+    border-radius: 5px;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+input, table.expense-table {
+    border: 1px solid lightgray;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[id="name"] {
+    width: 90%;
+}
+
+input[id="date"] {
+    width: 42%;
+    cursor: pointer;
+}
+
+input[id="amount"] {
+    width: 42%;
+}
+
+table.expense-table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+}
+
+td {
+    background-color:#F0F0F0;
+}
