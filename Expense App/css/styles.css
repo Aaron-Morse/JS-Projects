@@ -18,21 +18,35 @@ div.main {
     text-align: center;
 }
 
+div.name-div,
+div.date-amount-div {
+    margin: 1rem;
+    display: flex;
+}
+
+div.name {
+    width: 100%;
+}
+
 button.add-expense {
+    margin: 5px;
     padding: 5px;
     font-size: 110%;
     font-weight: 100;
+    border: none;
     border-radius: 5px;
     color: white;
     background-color: green;
     cursor: pointer;
 }
 
-input, table.expense-table {
+input {
+    display: flex;
     border: 1px solid lightgray;
 }
 
 label {
+    display: inline-block;
     font-weight: bold;
 }
 
@@ -53,6 +67,7 @@ table.expense-table {
     width: 100%;
     margin-top: 10px;
     text-align: left;
+    border: 1px solid lightgray;
 }
 
 td {
