@@ -1,0 +1,45 @@
+div.main {
+    margin: auto;
+    width: 40%;
+    border-radius: 25px;
+    border: 2px solid black;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+input[type="text"] {
+    width: 35%;
+    border: 2px solid #0080ff;
+    border-radius: 5px;
+    background-color: #00ffff;
+    padding: 10px 3px;
+}
+
+div.to-do-list {
+    text-align: center;
+}
+
+ol {
+    display: inline-block; 
+	text-align: left;
+}
+
+li {
+    margin-bottom: 5px;
+    font-size: 25px
+}
+
+::placeholder {
+    color: #808080;
+    font-size: 150%;
+}
+
+button.submit, button.clear-list {
+    font-size: 120%;
+}
+
+button.remove {
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
