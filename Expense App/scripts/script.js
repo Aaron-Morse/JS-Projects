@@ -36,4 +36,8 @@ function addExpenseItem() {
     expenseItem.innerHTML = `<td>${nameInput.value}</td><td>${dateInput.value}</td><td>$${Number(amountInput.value).toFixed(2)}</td><td><button>x</button></td>`;
     // Appends the newly created table row to the table
     table.appendChild(expenseItem);
+    // Clears input values after item is added
+    nameInput.value = '';
+    dateInput.value = '';
+    amountInput.value = '';
 }
