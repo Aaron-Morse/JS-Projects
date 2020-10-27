@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+    margin-top: 6.25rem;
+    font-size: 2rem;
+}
+
+h1 {
+    font-weight: 100;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 90%;
+    color: green;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    margin-top: 1rem;
+    width: 75%;
+    text-align: center;
+}
+
+.container-row {
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+label {
+    vertical-align: top;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+textarea {
+    border: 1px solid lightgrey;
+    height: 5rem;
+    width: 96%;
+}
+
+textarea::placeholder {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.add-note {
+    margin: 1rem;
+    padding: 10px;
+    font-size: 1.5rem;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 75%;
+}
+
+.note {
+    flex-grow: 1;
+    flex-basis: 50%;
+    border: 1px solid lightgrey;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.view-detail {
+    padding: 8px;
+    font-size: .9rem;
+    background-color: royalblue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+p:first-of-type {
+    font-weight: bold;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 75%;
+    height: 200px;
+  }
+
+  .close-modal {
+      text-align: left;
+      margin: 5px;
+      cursor: pointer;
+  }
+
