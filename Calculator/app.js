@@ -34,6 +34,9 @@ const math = operator => {
     if (symbol === minus) {
         total = Number(total) - Number(value);
     }
+    if (symbol === modulo) {
+        total = Number(total) % Number(value);
+    }
     value = '';
     symbol = operator;
     display.textContent = total;
