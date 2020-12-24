@@ -42,6 +42,21 @@ const math = operator => {
     display.textContent = total;
 }
 
+// Listener returns calculator to default
+ac.addEventListener('click', () => {
+    if (!value) { // Only clears all if there isn't a number in the value var, otherwise it clears everything
+        ac.textContent = 'AC'; // Sets AC button text back to AC from C
+        display.textContent = 0; // Display text returns to 0
+        total = ''; // The value variable is reset to an empty string
+        value = ''; // The value variable is reset to an empty string
+        symbol= ''; // The symbol variable is reset to an empty string
+    } else {
+        ac.textContent = 'AC'; // Sets AC button text back to AC from C
+        display.textContent = 0; // Display text returns to 0
+        value = ''; // The value variable is reset to an empty string
+    }
+});
+
 // Listener for numbers
 numbers.forEach(number => number.addEventListener('click', (e) => {
     if (ac.textContent === 'AC') {
@@ -58,14 +73,13 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
 
 // Listener for operators
 operators.forEach(operator => operator.addEventListener('click', (e) => {
-    if (total > 0) {
+    if (total) {
         if (symbol) {
             if (symbol !== equals) {
                 math(e.target);
             } 
             if (symbol === equals) {
                 math(e.target);
-                total = '';
                 symbol = '';
             }
         } else {
@@ -74,13 +88,22 @@ operators.forEach(operator => operator.addEventListener('click', (e) => {
     }
 }));
 
-// Listener returns calculator to default
-ac.addEventListener('click', () => {
-    ac.textContent = 'AC'; // Sets AC button text back to AC from C
-    display.textContent = 0; // Display text returns to 0
-    total = ''; // The value variable is reset to an empty string
-    value = ''; // The value variable is reset to an empty string
-    symbol= ''; // The symbol variable is reset to an empty string
+// Listener for Plus-Minus button
+plusMinus.addEventListener('click', () => {
+    if (total > 0 && value === '') {
+        total = '-' + total;
+        display.textContent = total;
+    }
+    else if (total < 0 && value === '') {
+        total = total.slice(1);
+        display.textContent = total; 
+    }
+    else if (value > 0) {
+        value = '-' + value;
+        display.textContent = value;
+    }
+    else if (value < 0) {
+        value = value.slice(1);
+        display.textContent = value; 
+    }
 });
-
-

@@ -56,7 +56,7 @@ body {
     color: black;
 }
 
-.operator {
+.operator, .plus-minus {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,6 +66,11 @@ body {
     border-radius: 50%;
     background-color: #f39109;
     color: white;
+}
+
+.operator:active {
+    background-color: white;
+    color: #f39109;
 }
 
 .number {
@@ -80,6 +85,10 @@ body {
     color: white;  
 }
 
+.number:active {
+    background-color: #686868;
+}
+
 .period {
     display: flex;
     align-items: flex-end;
@@ -87,10 +96,10 @@ body {
     height: 80px;
     width: 80px;
     margin: 10px 0;
-    padding-bottom: 5px;;
+    padding-bottom: 10px;
     border-radius: 50%;
     background-color: #353535;
-    color: white;  
+    color: white;
 }
 
 .zero {
