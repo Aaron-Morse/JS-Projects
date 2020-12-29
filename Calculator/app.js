@@ -1,6 +1,7 @@
 // Selectors
 let display = document.querySelector('.display');
 let ac = document.querySelector('.ac');
+const calculator = document.querySelector('.calculator');
 
 // Operator Selectors
 const operators = document.querySelectorAll('.operator');
@@ -39,7 +40,7 @@ const math = operator => {
     }
     value = '';
     symbol = operator;
-    display.textContent = total;
+    display.textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
 }
 
 // Listener returns calculator to default
@@ -64,10 +65,10 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
     }
     if(!symbol) {
         total += e.target.textContent;
-        display.textContent = total;
+        display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     } else {
         value += e.target.textContent;
-        display.textContent = value;
+        display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
     }
 }));
 
@@ -92,18 +93,18 @@ operators.forEach(operator => operator.addEventListener('click', (e) => {
 plusMinus.addEventListener('click', () => {
     if (total > 0 && value === '') {
         total = '-' + total;
-        display.textContent = total;
+        display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
     }
     else if (total < 0 && value === '') {
         total = total.slice(1);
-        display.textContent = total; 
+        display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
     }
     else if (value > 0) {
         value = '-' + value;
-        display.textContent = value;
+        display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
     }
     else if (value < 0) {
         value = value.slice(1);
-        display.textContent = value; 
+        display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
     }
 });

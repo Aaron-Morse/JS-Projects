@@ -9,6 +9,9 @@
 body {
     height: 812px;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .calculator {
