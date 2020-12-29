@@ -60,15 +60,20 @@ ac.addEventListener('click', () => {
 
 // Listener for numbers
 numbers.forEach(number => number.addEventListener('click', (e) => {
-    if (ac.textContent === 'AC') {
+    if (ac.textContent === 'AC') { // Checks to see if the AC button contains AC and if it does switches it to C
         ac.textContent = 'C';
     }
     if(!symbol) {
-        total += e.target.textContent;
-        display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    } else {
-        value += e.target.textContent;
-        display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+        if (display.textContent.length < 11) {
+            total += e.target.textContent;
+            display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    }
+    else {
+        if (display.textContent.length < 11 || value === '') {
+            value += e.target.textContent;
+            display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
     }
 }));
 
@@ -106,5 +111,27 @@ plusMinus.addEventListener('click', () => {
     else if (value < 0) {
         value = value.slice(1);
         display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+    }
+});
+
+// Event listener to adjust the displays sizing and padding based on length
+calculator.addEventListener('click', () => {
+    let len = display.textContent.length;
+    console.log(len);
+    if (len < 7) {
+        display.style.fontSize = '95px';
+        display.style.padding = '0 20px 5px 0';
+    }
+    if (len > 7 && len < 10) {
+        display.style.fontSize = '80px';
+        display.style.padding = '0 15px 5px 0';
+    }
+    if (len >= 10 && len < 11) {
+        display.style.fontSize = '70px';
+        display.style.padding = '0 13px 5px 0';
+    }
+    if (len >= 11) {
+        display.style.fontSize = '62.5px';
+        display.style.padding = '0 10px 5px 0';
     }
 });
