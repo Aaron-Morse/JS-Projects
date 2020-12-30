@@ -58,26 +58,30 @@ ac.addEventListener('click', () => {
     }
 });
 
-// Listener for numbers
+// Listener for numbers to append to appropriate variable for computation and AC button
 numbers.forEach(number => number.addEventListener('click', (e) => {
-    if (ac.textContent === 'AC') { // Checks to see if the AC button contains AC and if it does switches it to C
-        ac.textContent = 'C';
-    }
     if(!symbol) {
-        if (display.textContent.length < 11) {
-            total += e.target.textContent;
-            display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (e.target.textContent !== '0' && total === '' || total > 0) { // Conditional disables the use of the 0 button until something great than 0
+            if (display.textContent.length < 11) { // Conditional disables numbers based on display length
+                total += e.target.textContent;
+                display.textContent = total.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
         }
     }
     else {
-        if (display.textContent.length < 11 || value === '') {
-            value += e.target.textContent;
-            display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (e.target.textContent !== '0' && value === '' || value > 0) { // Conditional disables the use of the 0 button until something great than 0
+            if (display.textContent.length < 11 || value === '') { // Conditional disables numbers based on display length
+                value += e.target.textContent;
+                display.textContent = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
         }
+    }
+    if (ac.textContent === 'AC' && total !=='') { // Checks to see if the AC button contains AC and total isn't blank and switches to C
+        ac.textContent = 'C';
     }
 }));
 
-// Listener for operators
+// Listener for operators to run math function to compute the problems
 operators.forEach(operator => operator.addEventListener('click', (e) => {
     if (total) {
         if (symbol) {
@@ -114,10 +118,9 @@ plusMinus.addEventListener('click', () => {
     }
 });
 
-// Event listener to adjust the displays sizing and padding based on length
+// Event listener to adjust the displays sizing and padding based on display content length
 calculator.addEventListener('click', () => {
-    let len = display.textContent.length;
-    console.log(len);
+    const len = display.textContent.length;
     if (len < 7) {
         display.style.fontSize = '95px';
         display.style.padding = '0 20px 5px 0';
